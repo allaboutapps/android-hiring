@@ -1,15 +1,30 @@
 package at.allaboutapps.a3hiring;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
+
+import at.allaboutapps.a3hiring.api.ApiHelper;
+import at.allaboutapps.a3hiring.api.models.Club;
+import at.allaboutapps.a3hiring.list.ClubContract;
+import at.allaboutapps.a3hiring.list.ClubsAdapter;
+import at.allaboutapps.a3hiring.list.ClubsPresenter;
 import at.allaboutapps.a3hiring.vh.MainActivityViewHolder;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ClubContract.View {
 
   private MainActivityViewHolder mViewHolder;
+
+  private ClubsAdapter mAdapter;
+  private ClubContract.Presenter mClubsPresenter;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +34,19 @@ public class MainActivity extends AppCompatActivity {
     mViewHolder = new MainActivityViewHolder(this);
 
     setSupportActionBar(mViewHolder.toolbar);
+    initList();
+    initPresenter();
+  }
+
+  private void initPresenter() {
+    mClubsPresenter = new ClubsPresenter(this, ApiHelper.buildRetrofit());
+    mClubsPresenter.loadListData();
+  }
+
+  private void initList() {
+    mAdapter = new ClubsAdapter(this);
+    mViewHolder.clubList.setLayoutManager(new LinearLayoutManager(this));
+    mViewHolder.clubList.setAdapter(mAdapter);
   }
 
   @Override
@@ -35,7 +63,18 @@ public class MainActivity extends AppCompatActivity {
     // as you specify a parent activity in AndroidManifest.xml.
     int id = item.getItemId();
 
-
     return super.onOptionsItemSelected(item);
+  }
+
+  @Override
+  public void showListData(@NotNull List<Club> clubList) {
+    mViewHolder.progress.setVisibility(View.GONE);
+    mAdapter.setDataset(clubList);
+  }
+
+  @Override
+  public void showError(@NotNull Throwable error) {
+    mViewHolder.progress.setVisibility(View.GONE);
+    Snackbar.make(mViewHolder.vgMainLayout, error.getLocalizedMessage(), Snackbar.LENGTH_SHORT).show();
   }
 }
