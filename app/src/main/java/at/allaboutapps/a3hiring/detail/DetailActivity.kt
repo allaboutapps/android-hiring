@@ -6,14 +6,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.Html
 import android.text.TextUtils
+import android.view.MenuItem
 import at.allaboutapps.a3hiring.R
 import at.allaboutapps.a3hiring.api.models.Club
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_detail.*
 
-/**
- *
- */
 class DetailActivity : AppCompatActivity() {
 
   companion object {
@@ -27,6 +25,8 @@ class DetailActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_detail)
+
+    supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
     val club = intent.getParcelableExtra<Club>("club")
     title = club.name
@@ -42,5 +42,13 @@ class DetailActivity : AppCompatActivity() {
       club.image ?: R.drawable.club_placeholder
     }
     Glide.with(this).load(imageUrl).into(ivClubImage)
+  }
+
+  override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    if (item.itemId == android.R.id.home) {
+      finish()
+      return true
+    }
+    return super.onOptionsItemSelected(item)
   }
 }

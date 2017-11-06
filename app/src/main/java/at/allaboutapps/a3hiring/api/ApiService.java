@@ -11,6 +11,6 @@ import retrofit2.http.GET;
 
 public interface ApiService {
 
-  @GET ("clubs.json?alt=media&token=118520e4-b25b-40be-bb1e-a2784f656efc")
+  @GET ("clubs.json?alt=media&token=0c7aeedb-9651-4976-9ee8-e0a3c566d8c3")
   Flowable<List<Club>> getClubs();
 }

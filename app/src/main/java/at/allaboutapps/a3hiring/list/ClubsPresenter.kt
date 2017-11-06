@@ -9,8 +9,8 @@ import java.util.*
 /**
  *
  */
-class ClubsPresenter(val view: ClubContract.View,
-                     val apiService: ApiService) : ClubContract.Presenter {
+class ClubsPresenter(private val view: ClubContract.View,
+                     private val apiService: ApiService) : ClubContract.Presenter {
 
   override fun loadListData() {
     apiService.clubs
