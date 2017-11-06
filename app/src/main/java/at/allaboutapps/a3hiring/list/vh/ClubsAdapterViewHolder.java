@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -22,6 +23,7 @@ import at.allaboutapps.a3hiring.api.models.Club;
 public class ClubsAdapterViewHolder extends RecyclerView.ViewHolder {
 
   // CHECKSTYLE:OFF
+  public final RelativeLayout vgClub;
   public final ImageView ivClubImage;
   public final TextView tvClubName;
   public final TextView tvClubCountry;
@@ -30,6 +32,7 @@ public class ClubsAdapterViewHolder extends RecyclerView.ViewHolder {
 
   public ClubsAdapterViewHolder(View root) {
     super(root);
+    vgClub = root.findViewById(R.id.vgClub);
     ivClubImage = root.findViewById(R.id.ivClubImage);
     tvClubName = root.findViewById(R.id.tvClubName);
     tvClubCountry = root.findViewById(R.id.tvClubCountry);

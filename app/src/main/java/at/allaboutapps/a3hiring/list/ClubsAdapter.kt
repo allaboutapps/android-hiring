@@ -11,7 +11,7 @@ import at.allaboutapps.a3hiring.list.vh.ClubsAdapterViewHolder
 /**
  * View v=  LayoutInflater.from(context).inflate(R.layout.item_club, parent, false)
  */
-class ClubsAdapter(val context: Context) : RecyclerView.Adapter<ClubsAdapterViewHolder>() {
+class ClubsAdapter(private val context: Context, private val listener: (Club) -> Unit) : RecyclerView.Adapter<ClubsAdapterViewHolder>() {
 
   private var dataset = arrayListOf<Club>()
 
@@ -27,7 +27,11 @@ class ClubsAdapter(val context: Context) : RecyclerView.Adapter<ClubsAdapterView
   }
 
   override fun onBindViewHolder(holder: ClubsAdapterViewHolder, position: Int) {
-    holder.bind(dataset[position])
+    val item = dataset[position]
+    holder.bind(item)
+    holder.vgClub.setOnClickListener {
+      listener(item)
+    }
   }
 
   override fun getItemCount() = dataset.size

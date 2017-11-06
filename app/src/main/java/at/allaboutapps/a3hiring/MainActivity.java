@@ -14,10 +14,13 @@ import java.util.List;
 
 import at.allaboutapps.a3hiring.api.ApiHelper;
 import at.allaboutapps.a3hiring.api.models.Club;
+import at.allaboutapps.a3hiring.detail.DetailActivity;
 import at.allaboutapps.a3hiring.list.ClubContract;
 import at.allaboutapps.a3hiring.list.ClubsAdapter;
 import at.allaboutapps.a3hiring.list.ClubsPresenter;
 import at.allaboutapps.a3hiring.vh.MainActivityViewHolder;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 
 public class MainActivity extends AppCompatActivity implements ClubContract.View {
 
@@ -44,10 +47,18 @@ public class MainActivity extends AppCompatActivity implements ClubContract.View
   }
 
   private void initList() {
-    mAdapter = new ClubsAdapter(this);
+    mAdapter = new ClubsAdapter(this, mClubClickListener);
     mViewHolder.clubList.setLayoutManager(new LinearLayoutManager(this));
     mViewHolder.clubList.setAdapter(mAdapter);
   }
+
+  private Function1<? super Club, Unit> mClubClickListener = new Function1<Club, Unit>() {
+    @Override
+    public Unit invoke(Club club) {
+      startActivity(DetailActivity.Companion.newIntent(MainActivity.this, club));
+      return null;
+    }
+  };
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
