@@ -3,8 +3,9 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="at.allaboutapps.a3hiring.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/menuSort"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never"/>
+        android:title="@string/menu_sort"
+        app:icon="@drawable/ic_filter"
+        app:showAsAction="always"/>
 </menu>

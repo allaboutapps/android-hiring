@@ -16,5 +16,6 @@ interface ClubContract {
   interface Presenter {
 
     fun loadListData()
+    fun toggleSort()
   }
 }
