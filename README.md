@@ -7,7 +7,7 @@
 
 Um einen besseren Überblick über das Skill-Level von Bewerbern zu bekommen, müssen diese im Aufnahmeprozess ein vorgegebenes Beispiel umsetzen.
 
-Eine detaillierte Anleitung bekommst du nach Eingang deiner Bewerbung.
+Eine detaillierte Anleitung wird nach Eingang der Bewerbung ausgeschickt.
 
 ---
 
