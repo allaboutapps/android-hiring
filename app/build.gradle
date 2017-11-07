@@ -28,8 +28,6 @@ android {
 }
 
 
-
-
 ext {
     retrofitVersion = '2.3.0'
 }
@@ -52,6 +50,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    implementation "at.allaboutapps.recyclerview:a3recyclerview-decorations:1.0.1"
 
     compile 'com.github.bumptech.glide:glide:4.3.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.3.0'

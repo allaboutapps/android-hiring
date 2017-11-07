@@ -7,4 +7,7 @@
     <color name="colorPrimary">#01c13b</color>
     <color name="colorPrimaryDark">#006c09</color>
     <color name="colorAccent">#f92900</color>
+
+    <color name="detail_background">#FF333333</color>
+    <color name="list_divider">#939393</color>
 </resources>

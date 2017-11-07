@@ -2,6 +2,7 @@ package at.allaboutapps.a3hiring;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.Menu;
@@ -19,6 +20,7 @@ import at.allaboutapps.a3hiring.list.ClubContract;
 import at.allaboutapps.a3hiring.list.ClubsAdapter;
 import at.allaboutapps.a3hiring.list.ClubsPresenter;
 import at.allaboutapps.a3hiring.vh.MainActivityViewHolder;
+import at.allaboutapps.recyclerview.decorations.A3SeparatorDecoration;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements ClubContract.View
     mAdapter = new ClubsAdapter(this, mClubClickListener);
     mViewHolder.clubList.setLayoutManager(new LinearLayoutManager(this));
     mViewHolder.clubList.setAdapter(mAdapter);
+
+    mViewHolder.clubList.addItemDecoration(new A3SeparatorDecoration(getResources(), ContextCompat.getColor(this, R.color.list_divider)));
   }
 
   private Function1<? super Club, Unit> mClubClickListener = new Function1<Club, Unit>() {
