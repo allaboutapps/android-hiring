@@ -12,9 +12,6 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        //server base url -- do not change
-        buildConfigField "String", "SERVER_BASE_URL", "\"https://firebasestorage.googleapis.com/v0/b/a3hiring-9b3e2.appspot.com/o/\""
     }
     buildTypes {
         release {
