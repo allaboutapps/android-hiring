@@ -23,17 +23,5 @@
     </android.support.design.widget.AppBarLayout>
 
 
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/progress"
-        android:indeterminate="true"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/clubList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-
+   <!-- TODO: Add content layout here -->
 </android.support.design.widget.CoordinatorLayout>

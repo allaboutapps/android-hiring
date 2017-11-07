@@ -1,7 +1,4 @@
 <resources>
     <string name="app_name">all about clubs</string>
     <string name="menu_sort">Sortierung</string>
-
-    <string name="club_value">%1$d Millionen</string>
-    <string name="club_description"><![CDATA[Der Club <b>%1$s</b> aus %2$s hat einen Wert von %3$d Millionen Euro.]]></string>
 </resources>
