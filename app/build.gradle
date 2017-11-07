@@ -24,11 +24,6 @@ android {
     }
 }
 
-
-ext {
-    retrofitVersion = '2.3.0'
-}
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
